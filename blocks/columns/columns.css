@@ -25,6 +25,8 @@
 
 .columns.product h2 {
   color: #103c79;
+  font-family: Rubik, sans-serif;
+  font-weight: regular;
   font-size: 2.25rem;
   line-height: 2.625rem;
 }
