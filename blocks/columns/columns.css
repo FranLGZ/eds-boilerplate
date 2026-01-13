@@ -19,14 +19,14 @@
   display: block;
 }
 
-.columns.product{ 
+.columns.product{
   font-family: Rubik, sans-serif;
 }
 
 .columns.product h2 {
   color: #103c79;
   font-family: Rubik, sans-serif;
-  font-weight: regular;
+  font-weight: 500;
   font-size: 2.25rem;
   line-height: 2.625rem;
 }
