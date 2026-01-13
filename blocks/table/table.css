@@ -1,6 +1,13 @@
-.table div{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.table > div{
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    /* background-color: #f0f0f0; */
+    border: 1px solid #ccc;
 }
 
+.table div > div:last-child {
+    border: 2px solid red;
+    text-align: right;
+}
