@@ -19,6 +19,10 @@
   display: block;
 }
 
+h2 {
+  color: red;
+}
+
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
