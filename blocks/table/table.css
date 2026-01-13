@@ -8,6 +8,6 @@
 }
 
 .table div > div:last-child {
-    border: 2px solid red;
+    border: 3px solid red;
     text-align: right;
 }
