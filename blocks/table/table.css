@@ -1,19 +1,19 @@
+
 .table > div {
   display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
-    padding: 10px;
-    /* background-color: #f0f0f0; */
-    border: 1px solid #ccc;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 1rem;
+  border: 1px solid #ebe6e7;
 }
 
 .table > div:first-child {
-    background: #2c60a1;
-    color: white;
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
+  background: #2c60a1;
+  color: white;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
 }
 
 .table div > div:last-child {
-    text-align: right;
+  text-align: right;
 }
