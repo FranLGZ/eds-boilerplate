@@ -15,6 +15,10 @@
   border-top-right-radius: .5rem;
 }
 
+.table > div:first-child p {
+  margin: 0;
+}
+
 .table div > div:last-child {
   text-align: right;
 }
