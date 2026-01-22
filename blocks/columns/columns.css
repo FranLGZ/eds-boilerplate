@@ -21,14 +21,40 @@
 
 .columns.product, .columns.info{
   font-family: Rubik, sans-serif;
+  color: var(--color-neutral-400);
+  line-height: 1.5;
 }
 
-.columns.product h2, .columns.info h3 {
+.columns.product p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.columns.info p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.columns.product a {
+  text-decoration: underline;
+  display: flex;
+  justify-self: end;
+}
+
+.columns.product h2 {
   color: #103c79;
   font-family: Rubik, sans-serif;
   font-weight: 500;
   font-size: 2.25rem;
   line-height: 2.625rem;
+}
+
+.columns.info h3 {
+  color: #103c79;
+  font-family: Rubik, sans-serif;
+  font-weight: 500;
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
 }
 
 @media (width >= 900px) {
