@@ -1,0 +1,10 @@
+.anim-svg-wrapper {
+  height: 100vh; /* Gives the user plenty of room to scroll */
+}
+
+.anim-svg {
+  position: sticky;
+  top: 25%; /* Keeps the SVG in the middle-ish area while scrolling */
+  display: flex;
+  justify-content: center;
+}
