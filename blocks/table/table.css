@@ -22,3 +22,8 @@
 .table div > div:last-child {
   text-align: right;
 }
+
+.table a {
+  text-decoration: underline;
+  color: var(--color-theme-500);
+}

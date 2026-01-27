@@ -89,6 +89,14 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+function moveAccordion() {
+  const accordion = document.querySelector('.accordion-wrapper');
+  const infoDiv = document.querySelector('.columns.product > div > div ~ div').lastElementChild;
+  console.log("accordion >",accordion);
+  console.log("infoDiv >",infoDiv);
+  infoDiv.after(accordion);
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
@@ -122,6 +130,7 @@ async function loadLazy(doc) {
 
   const main = doc.querySelector('main');
   await loadSections(main);
+  moveAccordion();
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
