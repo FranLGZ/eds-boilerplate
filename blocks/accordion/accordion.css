@@ -28,10 +28,20 @@
   transition: background-color 0.2s;
 }
 
+.columns.product .accordion details summary p {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-theme-500);
+}
+
 .accordion details[open] summary {
   background-color: var(--color-theme-400);
   color: white;
   padding: 16px 24px;
+}
+
+.columns.product .accordion details[open] summary p {
+  color: white;
 }
 
 .accordion details summary:focus,
@@ -61,7 +71,7 @@
 }
 
 .accordion details .accordion-item-body {
-  padding: 0 16px;
+  padding: 16px 24px;
 }
 
 .accordion details .accordion-item-body p {
