@@ -4,8 +4,7 @@ import { fetchPlaceholders } from '../../scripts/placeholders.js';
 const searchParams = new URLSearchParams(window.location.search);
 
 function findNextHeading(el) {
-  let preceedingEl =
-    el.parentElement.previousElement || el.parentElement.parentElement;
+  let preceedingEl = el.parentElement.previousElement || el.parentElement.parentElement;
   let h = 'H2';
   while (preceedingEl) {
     const lastHeading = [
@@ -148,8 +147,7 @@ async function renderResults(block, config, filteredData, searchTerms) {
   } else {
     const noResultsMessage = document.createElement('li');
     searchResults.classList.add('no-results');
-    noResultsMessage.textContent =
-      config.placeholders.searchNoResults || 'No results found.';
+    noResultsMessage.textContent = config.placeholders.searchNoResults || 'No results found.';
     searchResults.append(noResultsMessage);
   }
 }
@@ -176,8 +174,7 @@ function filterData(searchTerms, data) {
       return;
     }
 
-    const metaContents =
-      `${result.title} ${result.description} ${result.path.split('/').pop()}`.toLowerCase();
+    const metaContents = `${result.title} ${result.description} ${result.path.split('/').pop()}`.toLowerCase();
     searchTerms.forEach((term) => {
       const idx = metaContents.indexOf(term);
       if (idx < 0) return;
@@ -236,12 +233,12 @@ function searchInput(block, config) {
   input.setAttribute('type', 'search');
   input.className = 'search-input';
   console.log(
-    '%c>>>> config.placeholders.searchPlaceholder','color:cyan',
-    config.placeholders.searchPlaceholder
+    '%c>>>> config.placeholders.searchPlaceholder',
+    'color:cyan',
+    config.placeholders.searchPlaceholder,
   );
 
-  const searchPlaceholder =
-    config.placeholders.searchPlaceholder || 'Search...';
+  const searchPlaceholder = config.placeholders.searchPlaceholder || 'Search...';
   input.placeholder = searchPlaceholder;
   input.setAttribute('aria-label', searchPlaceholder);
 

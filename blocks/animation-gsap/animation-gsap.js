@@ -18,11 +18,11 @@ async function initGSAP(block) {
   // Create the timeline scoped to THIS block
   const runAnimation = gsap.timeline({
     scrollTrigger: {
-      trigger: block,      // Use the block itself as the trigger
-      start: 'top top',    // Starts when block top hits viewport top
-      end: '+=2500',       // 2500px of scrolling
+      trigger: block, // Use the block itself as the trigger
+      start: 'top top', // Starts when block top hits viewport top
+      end: '+=2500', // 2500px of scrolling
       scrub: true,
-      pin: true,           // Keeps the SVG fixed while animating
+      pin: true, // Keeps the SVG fixed while animating
       anticipatePin: 1,
     },
   });
@@ -39,7 +39,9 @@ async function initGSAP(block) {
     .add([
       gsap.to(select('#building_top'), { y: -200, opacity: 0, duration: 2 }),
       gsap.to(select('#wall_side'), { x: -200, opacity: 0, duration: 2 }),
-      gsap.to(select('#wall_front'), { x: 200, y: 200, opacity: 0, duration: 2 }),
+      gsap.to(select('#wall_front'), {
+        x: 200, y: 200, opacity: 0, duration: 2,
+      }),
     ])
     .add([
       gsap.to(select('#interior_wall_side'), { x: -200, opacity: 0, duration: 2 }),

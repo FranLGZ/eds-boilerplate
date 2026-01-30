@@ -1,4 +1,4 @@
-# Nibe 
+# Nibe Customer Portal PoC
 Your project's description...
 
 ## Environments

@@ -2,7 +2,7 @@ function updateAnimation(block, progress) {
   const duration = 2.5;
   const paths = block.querySelectorAll('.anim-path');
   const delay = (progress * duration * -1).toFixed(3);
-  
+
   paths.forEach((path) => {
     path.style.animationDelay = `${delay}s`;
   });

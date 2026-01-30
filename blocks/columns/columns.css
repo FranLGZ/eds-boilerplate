@@ -60,7 +60,7 @@
   font-family: Rubik, sans-serif;
   font-weight: 500;
   font-size: var(--text-h3);
-  line-height: var(--text-h3--line-height);
+  line-height: var(--text-h3-line-height);
 }
 
 @media (width >= 900px) {
