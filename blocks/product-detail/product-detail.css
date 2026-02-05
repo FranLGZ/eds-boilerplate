@@ -1,0 +1,151 @@
+.product-detail .product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns: Image on left, Info on right */
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.product-detail .product-image img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+}
+
+.product-detail .brand-label {
+  text-transform: uppercase;
+  color: #888;
+  font-size: 12px;
+}
+
+.product-detail .price-display {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.product-content p {
+  font-family: Rubik, sans-serif;
+  color: var(--color-neutral-400);
+  line-height: 1.5;
+  margin: 0;
+  font-size: 16px;
+}
+
+.product-info {
+    width: 50%;
+}
+
+.product-info h3 {
+  color: #103c79;
+  font-family: Rubik, sans-serif;
+  font-weight: 500;
+  font-size: var(--text-h3);
+  line-height: var(--text-h3-line-height);
+}
+
+.product-info p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.product-content h2 {
+    color: #103c79;
+    font-family: Rubik, sans-serif;
+    font-weight: 500;
+    font-size: 2.25rem;
+    line-height: 2.625rem;
+}
+
+.product-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-login a {
+  text-decoration: underline;
+  display: flex;
+  justify-self: end;
+  margin: 64px 0;
+  color: var(--color-theme-500);
+}
+
+.accordion details {
+  border-bottom: 1px solid #dadada;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.accordion details + details {
+  margin-top: 24px;
+}
+
+.accordion details summary {
+  position: relative;
+  padding: 16px 24px;
+  padding-right: 46px;
+  cursor: pointer;
+  list-style: none;
+  overflow: auto;
+  transition: background-color 0.2s;
+}
+
+.accordion details .accordion-item-body li {
+  border-bottom: 1px solid var(--color-neutral-200);
+  padding: 8px;
+  list-style: none;
+}
+
+ .accordion details summary p {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-theme-500);
+}
+
+.accordion details[open] summary {
+  background-color: var(--color-theme-400);
+  color: white;
+  padding: 16px 24px;
+}
+
+.accordion details[open] summary p {
+  color: white;
+}
+
+
+.accordion details summary:hover {
+  text-decoration: underline;
+}
+
+.accordion details[open] summary:hover {
+  text-decoration: none;
+}
+
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion details summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(135deg);
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-width: 2px 2px 0 0;
+  transition: transform 0.2s;
+}
+
+.accordion details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.accordion details .accordion-item-body {
+  padding: 16px 24px;
+}
+
+.accordion details[open] .accordion-item-body {
+  border-top: 1px solid #dadada;
+  background-color: var(--background-color);
+}
