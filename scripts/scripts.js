@@ -91,8 +91,10 @@ export function decorateMain(main) {
 
 function moveAccordion() {
   const accordion = document.querySelector('.accordion-wrapper');
-  const infoDiv = document.querySelector('.columns.product > div > div ~ div').lastElementChild;
-  infoDiv.after(accordion);
+  const infoDiv = document.querySelector('.columns.product > div > div ~ div')?.lastElementChild;
+  if (infoDiv) {
+    infoDiv.after(accordion);
+  }
 }
 
 /**

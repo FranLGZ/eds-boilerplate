@@ -232,11 +232,6 @@ function searchInput(block, config) {
   const input = document.createElement('input');
   input.setAttribute('type', 'search');
   input.className = 'search-input';
-  console.log(
-    '%c>>>> config.placeholders.searchPlaceholder',
-    'color:cyan',
-    config.placeholders.searchPlaceholder,
-  );
 
   const searchPlaceholder = config.placeholders.searchPlaceholder || 'Search...';
   input.placeholder = searchPlaceholder;
@@ -271,7 +266,6 @@ function searchBox(block, config) {
 
 export default async function decorate(block) {
   const placeholders = await fetchPlaceholders();
-  console.log('My Placeholders:', placeholders);
   const source = block.querySelector('a[href]')
     ? block.querySelector('a[href]').href
     : '/query-index.json';
