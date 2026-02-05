@@ -1,0 +1,41 @@
+{
+    "start": "top top",
+    "end": "+=2500",
+    "pin": true,
+    "steps": [
+        {
+            "animations": [
+                {
+                    "selector": "svg",
+                    "props": {
+                        "scale": 1.5
+                    }
+                },
+                {
+                    "selector": "#full_city",
+                    "props": {
+                        "opacity": 0
+                    }
+                }
+            ]
+        },
+        {
+            "animations": [
+                {
+                    "selector": "#building_top",
+                    "props": {
+                        "y": -200,
+                        "opacity": 0
+                    }
+                },
+                {
+                    "selector": "#wall_side",
+                    "props": {
+                        "x": -200,
+                        "opacity": 0
+                    }
+                }
+            ]
+        }
+    ]
+}
