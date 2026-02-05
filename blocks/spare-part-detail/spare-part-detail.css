@@ -1,0 +1,137 @@
+
+.spare-part-info {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.spare-part-info > div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+}
+
+.spare-part-info p {
+  font-family: Rubik, sans-serif;
+  color: var(--color-neutral-400);
+  line-height: 1.5;
+  margin: 0;
+  font-size: 16px;
+}
+
+.spare-part-extra-info {
+    width: 50%;
+}
+
+.spare-part-extra-info h3 {
+  color: var(--color-theme-500);
+  font-family: Rubik, sans-serif;
+  font-weight: 500;
+  font-size: var(--text-h3);
+  line-height: var(--text-h3-line-height);
+}
+
+.spare-part-extra-info p {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.spare-part-info h2 {
+  color: var(--color-theme-500);
+  font-family: Rubik, sans-serif;
+  font-weight: 500;
+  font-size: var(--text-h1);
+  line-height: var(--text-h1-line-height);
+}
+
+.spare-part-info a {
+  text-decoration: underline;
+  display: flex;
+  justify-self: end;
+  margin: 64px 0;
+  color: var(--color-theme-500);
+}
+
+.spare-part-info .accordion details {
+  border-bottom: 1px solid #dadada;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.spare-part-info .accordion details + details {
+  margin-top: 24px;
+}
+
+.spare-part-info .accordion details summary {
+  position: relative;
+  padding: 16px 24px;
+  padding-right: 46px;
+  cursor: pointer;
+  list-style: none;
+  overflow: auto;
+  transition: background-color 0.2s;
+}
+
+.spare-part-info .accordion details .accordion-item-body ul {
+  margin: 0;
+  padding: 0;
+}
+
+.spare-part-info .accordion details .accordion-item-body li {
+  border-bottom: 1px solid var(--color-neutral-200);
+  padding: 8px;
+  list-style: none;
+}
+
+.spare-part-info .accordion details summary p {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-theme-500);
+}
+
+.spare-part-info .accordion details[open] summary {
+  background-color: var(--color-theme-400);
+  color: white;
+  padding: 16px 24px;
+}
+
+.spare-part-info .accordion details[open] summary p {
+  color: white;
+}
+
+.spare-part-info .accordion details summary:hover {
+  text-decoration: underline;
+}
+
+.spare-part-info .accordion details[open] summary:hover {
+  text-decoration: none;
+}
+
+.spare-part-info .accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+.spare-part-info .accordion details summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%) rotate(135deg);
+  width: 6px;
+  height: 6px;
+  border: 2px solid;
+  border-width: 2px 2px 0 0;
+  transition: transform 0.2s;
+}
+
+.spare-part-info .accordion details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.spare-part-info .accordion details .accordion-item-body {
+  padding: 16px 24px;
+}
+
+.spare-part-info .accordion details[open] .accordion-item-body {
+  border-top: 1px solid #dadada;
+  background-color: var(--background-color);
+}
