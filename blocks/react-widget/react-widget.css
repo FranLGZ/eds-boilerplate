@@ -1,0 +1,21 @@
+@import url('./widget/course-detail-widget.css');
+
+main > .section > div.react-widget-wrapper {
+    padding: 0;
+    max-width: initial;
+}
+
+/* stylelint-disable-next-line selector-class-pattern */
+.react-aria-modal__underlay *, .react-widget-wrapper *  {
+  font-family: Rubik, sans-serif;
+}
+
+#react-aria-modal-dialog h2 {
+  font-size: unset;
+  font-weight: unset;
+}
+
+#react-aria-modal-dialog p {
+  /* margin: auto; */
+  font-weight: unset;
+}

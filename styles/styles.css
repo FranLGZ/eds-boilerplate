@@ -10,6 +10,9 @@
  * governing permissions and limitations under the License.
  */
 
+/* Temporary disable for the React Widget block */
+/* stylelint-disable selector-class-pattern */
+
 :root {
   /* colors */
   --background-color: white;
@@ -195,10 +198,10 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
-h1,
-h2,
-h3,
-h4,
+h1:not(.react-widget-wrapper h1, .react-aria-modal__underlay h1),
+h2:not(.react-widget-wrapper h2, .react-aria-modal__underlay h2),
+h3:not(.react-widget-wrapper h3, .react-aria-modal__underlay h3),
+h4:not(.react-widget-wrapper h4, .react-aria-modal__underlay h4),
 h5,
 h6 {
   margin-top: 0.8em;
@@ -209,15 +212,15 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
+h1:not(.react-widget-wrapper h1, .react-aria-modal__underlay h1) { font-size: var(--heading-font-size-xxl); }
+h2:not(.react-widget-wrapper h2, .react-aria-modal__underlay h2) { font-size: var(--heading-font-size-xl); }
+h3:not(.react-widget-wrapper h3, .react-aria-modal__underlay h3) { font-size: var(--heading-font-size-l); }
+h4:not(.react-widget-wrapper h4, .react-aria-modal__underlay h4) { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
-p,
-dl,
+p:not(.react-aria-modal__underlay p),
+dl:not(.react-widget-wrapper dl),
 ol,
 ul,
 pre,
@@ -246,7 +249,7 @@ main > div {
 input,
 textarea,
 select,
-button {
+button:not(.react-widget-wrapper button, .react-aria-modal__underlay button) {
   font: inherit;
 }
 
@@ -264,7 +267,7 @@ a:hover {
 
 /* buttons */
 a.button:any-link,
-button {
+button:not(.react-widget-wrapper button, .react-aria-modal__underlay button) {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
@@ -288,14 +291,14 @@ button {
 
 a.button:hover,
 a.button:focus,
-button:hover,
-button:focus {
+button:hover:not(.react-widget-wrapper button, .react-aria-modal__underlay button),
+button:focus:not(.react-widget-wrapper button, .react-aria-modal__underlay button) {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
-button:disabled,
-button:disabled:hover {
+button:disabled:not(.react-widget-wrapper button, .react-aria-modal__underlay button),
+button:disabled:hover:not(.react-widget-wrapper button, .react-aria-modal__underlay button) {
   background-color: var(--light-color);
   cursor: unset;
 }
