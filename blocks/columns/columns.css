@@ -1,7 +1,8 @@
-.columns > div {
-  display: flex;
+
+/* .columns > div { */
+  /* display: flex;
   flex-direction: column;
-}
+} */
 
 .columns img {
   width: 100%;
@@ -19,51 +20,8 @@
   display: block;
 }
 
-.columns.product, .columns.info{
-  font-family: Rubik, sans-serif;
-  color: var(--color-neutral-400);
-  line-height: 1.5;
-}
 
-.columns.product > div {
-  align-items: flex-start;
-}
-
-.columns.product p {
-  margin: 0;
-  font-size: 16px;
-}
-
-.columns.info p {
-  margin-bottom: 16px;
-  font-size: 16px;
-}
-
-.columns.product a {
-  text-decoration: underline;
-  display: flex;
-  justify-self: end;
-  margin: 64px 0;
-  color: var(--color-theme-500);
-}
-
-.columns.product h2 {
-  color: #103c79;
-  font-family: Rubik, sans-serif;
-  font-weight: 500;
-  font-size: 2.25rem;
-  line-height: 2.625rem;
-}
-
-.columns.info h3 {
-  color: #103c79;
-  font-family: Rubik, sans-serif;
-  font-weight: 500;
-  font-size: var(--text-h3);
-  line-height: var(--text-h3-line-height);
-}
-
-@media (width >= 900px) {
+/* @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
@@ -74,4 +32,120 @@
     flex: 1;
     order: unset;
   }
+} */
+
+
+
+/*
+$b-0: 0;
+$b-1: 1px;
+$b-768: 768px;
+$b-1001: 1001px;
+$b-1024: 1024px;
+$b-1097: 1097px;
+$b-1280: 1280px;
+$b-1380: 1380px;
+$b-1440: 1440px;
+$b-1920: 1920px;
+
+// max width breakpoint
+$b-767: 767px;
+$b-1023: 1023px;
+$b-1279: 1279px;
+$b-1439: 1439px;
+$b-1919: 1919px;
+
+// min-width aliases .They are easier to understand than numbered variables
+$bp-xs: $b-0;
+$bp-s: $b-768;
+$bp-m: $b-1024;
+$bp-l: $b-1280;
+$bp-xl: $b-1440;
+
+// max-width aliases.
+$bp-xs-max: $b-767;
+$bp-s-max: $b-1023;
+$bp-m-max: $b-1279;
+$bp-l-max: $b-1439;
+$bp-xl-max: $b-1919;
+*/
+
+/*For the breakpoints I can suggest 768px (tablet portrait), 1024px (tablet landscape, sometimes can be 960px instead of 1024), 1200 (desktop), and 1500 (desktop large). From 0 to 1024 I would make the container full width, then I would assign to it a fixed with and center it for bigger screens*/
+
+
+.columns-row {
+  --grid-columns: 12;
+  --gap: 24px;
+
+  /* Column default values */
+  --third-initial-column: auto;
+  --third-final-column: 4;
+  --twothirds-initial-column: auto;
+  --twothirds-final-column: 8;
+
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--gap);
+}
+
+.col-third {
+	grid-column: var(--third-initial-column) / span var(--third-final-column);
+}
+
+.col-two-thirds {
+	grid-column: var(--twothirds-initial-column) / span var(--twothirds-final-column);
+}
+
+.col-two-thirds-right-txt {
+  --twothirds-initial-column: 6;
+  --twothirds-final-column: 7;
+}
+
+.col-two-thirds-left-txt {
+  --twothirds-initial-column: auto;
+  --twothirds-final-column: 7;
+}
+
+.col-start-two-thirds {
+	grid-column-start: 9;
+}
+
+.col-half {
+	grid-column: auto / span 6;
+}
+
+.col-three-fourths {
+	grid-column: auto / span 9;
+}
+
+@media (width>= 768px) {
+    .columns {
+      border: 2px solid red;
+    }
+
+    .columns-row {
+      --grid-columns: 8;
+    }
+}
+
+@media (width>= 1024px) {
+    .columns {
+      border: 2px solid yellowgreen;
+    }
+
+    .columns-row {
+      --grid-columns: 12;
+    }
+}
+
+@media (width>= 1280px) {
+    .columns {
+      border: 2px solid blueviolet;
+    }
+}
+
+@media (width>= 1500px) {
+    .columns {
+      border: 2px solid cyan;
+    }
 }
