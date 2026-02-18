@@ -1,151 +1,126 @@
+.columns-2-cols {
+  --vertical-alignment: center;
+}
 
-/* .columns > div { */
-  /* display: flex;
-  flex-direction: column;
-} */
+.columns-3-cols {
+  --vertical-alignment: start;
+}
 
 .columns img {
   width: 100%;
 }
 
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
-}
-
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
-
-/* @media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 24px;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
-} */
-
-
-
-/*
-$b-0: 0;
-$b-1: 1px;
-$b-768: 768px;
-$b-1001: 1001px;
-$b-1024: 1024px;
-$b-1097: 1097px;
-$b-1280: 1280px;
-$b-1380: 1380px;
-$b-1440: 1440px;
-$b-1920: 1920px;
-
-// max width breakpoint
-$b-767: 767px;
-$b-1023: 1023px;
-$b-1279: 1279px;
-$b-1439: 1439px;
-$b-1919: 1919px;
-
-// min-width aliases .They are easier to understand than numbered variables
-$bp-xs: $b-0;
-$bp-s: $b-768;
-$bp-m: $b-1024;
-$bp-l: $b-1280;
-$bp-xl: $b-1440;
-
-// max-width aliases.
-$bp-xs-max: $b-767;
-$bp-s-max: $b-1023;
-$bp-m-max: $b-1279;
-$bp-l-max: $b-1439;
-$bp-xl-max: $b-1919;
-*/
-
-/*For the breakpoints I can suggest 768px (tablet portrait), 1024px (tablet landscape, sometimes can be 960px instead of 1024), 1200 (desktop), and 1500 (desktop large). From 0 to 1024 I would make the container full width, then I would assign to it a fixed with and center it for bigger screens*/
-
 
 .columns-row {
-  --grid-columns: 12;
-  --gap: 24px;
+  --grid-columns: 4;
+  --gap: 12px;
 
-  /* Column default values */
+  /* Column default mobile values */
   --third-initial-column: auto;
-  --third-final-column: 4;
+  --third-span: 4;
   --twothirds-initial-column: auto;
-  --twothirds-final-column: 8;
+  --twothirds-span: 4;
+  --half-initial-column: auto;
+  --half-span: 4;
 
   display: grid;
+  align-items: var(--vertical-alignment);
   grid-template-columns: repeat(var(--grid-columns), 1fr);
   gap: var(--gap);
 }
 
-.col-third {
-	grid-column: var(--third-initial-column) / span var(--third-final-column);
+.col-33 {
+	grid-column: var(--third-initial-column) / span var(--third-span);
 }
 
-.col-two-thirds {
-	grid-column: var(--twothirds-initial-column) / span var(--twothirds-final-column);
-}
-
-.col-two-thirds-right-txt {
-  --twothirds-initial-column: 6;
-  --twothirds-final-column: 7;
-}
-
-.col-two-thirds-left-txt {
-  --twothirds-initial-column: auto;
-  --twothirds-final-column: 7;
-}
-
-.col-start-two-thirds {
-	grid-column-start: 9;
+.col-66 {
+	grid-column: var(--twothirds-initial-column) / span var(--twothirds-span);
 }
 
 .col-half {
-	grid-column: auto / span 6;
+	grid-column: var(--half-initial-column) / span var(--half-span);
 }
 
-.col-three-fourths {
-	grid-column: auto / span 9;
-}
-
-@media (width>= 768px) {
-    .columns {
+@media (width >= 768px) {
+    /* .columns {
       border: 2px solid red;
-    }
+    } */
 
     .columns-row {
       --grid-columns: 8;
     }
+
+    /* .col-33:last-child {
+      border: 1px solid blue;
+
+      --third-span: 12;
+    } */
 }
 
-@media (width>= 1024px) {
-    .columns {
+@media (width >= 1024px) {
+    /* .columns {
       border: 2px solid yellowgreen;
-    }
+    } */
 
     .columns-row {
       --grid-columns: 12;
+      --gap: 24px;
+
+      /* Column tablet portrait values */
+      --third-initial-column: auto;
+      --third-span: 6;
+      --twothirds-initial-column: auto;
+      --twothirds-span: 6;
+      --half-initial-column: auto;
+      --half-span: 6;
     }
 }
 
-@media (width>= 1280px) {
-    .columns {
+@media (width >= 1200px) {
+    /* .columns {
       border: 2px solid blueviolet;
+    } */
+
+    .columns-row {
+      /* Column default desktop values */
+      --third-initial-column: auto;
+      --third-span: 4;
+      --twothirds-initial-column: auto;
+      --twothirds-span: 8;
+      --half-initial-column: auto;
+      --half-span: 6;
+    }
+
+    .col-66-right-txt {
+      --twothirds-initial-column: 6;
+      --twothirds-span: 7;
+    }
+
+    .col-66-left-txt {
+      --twothirds-initial-column: auto;
+      --twothirds-span: 7;
+    }
+
+    .col-start-two-thirds {
+      --third-initial-column: 9;
+    }
+
+    .col-half-right-txt {
+      --half-initial-column: 8;
+      --half-span: 5;
+    }
+
+    .col-half-left-txt {
+      --half-span: 5;
+    }
+
+    .col-start-half {
+      --half-initial-column: 7;
     }
 }
 
-@media (width>= 1500px) {
-    .columns {
+@media (width >= 1500px) {
+    /* .columns {
       border: 2px solid cyan;
-    }
+    } */
 }
