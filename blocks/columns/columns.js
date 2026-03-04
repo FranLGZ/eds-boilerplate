@@ -1,48 +1,71 @@
 export default function decorate(block) {
-  const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-${cols.length}-cols`);
-  const blockClasses = block.getAttribute('class');
+  const rows = [...block.children];
+  const colCount = rows[0]?.children.length || 0;
+  block.classList.add(`columns-${colCount}-cols`);
 
-  // Setup columns based on Grid
-  [...block.children].forEach((row) => {
-    row.setAttribute('class', 'columns-row');
-    [...row.children].forEach((col, index) => {
-      if (cols.length === 3) {
-        col.setAttribute('class', 'col-33');
+  /* Setup columns based on Grid */
+  rows.forEach((row) => {
+    row.classList.add('columns-row');
+    const columns = [...row.children];
+    /* Determine if there is a Picture element in the current row */
+    const hasImageInRow = row.querySelector('picture');
+    /* If there are no Picture elements in the current row the vertical aligment is set to top */
+    if (!hasImageInRow) {
+      row.classList.add('col-align-top');
+    }
+
+    columns.forEach((column, index) => {
+      /* Determine if there are Picture and/or Text elements in the current column */
+      const isPicture = !!column.querySelector('picture');
+      const isText = !!column.querySelector('p');
+      const cell = index + 1;
+
+      /* --- 3 columns (33 / 33 / 33) logic --- */
+      if (colCount === 3) {
+        column.classList.add('col-33');
+        /* If the last column is a picture, last-col-img is added in order to
+        maintain the 3 columns layout for Tablet viewports */
+        if (cell === 3 && isPicture) {
+          row.classList.add('last-col-img');
+        }
+        /* --- 2 columns variants logic --- */
       } else {
-        const textElement = col.querySelector('p');
-        const picElement = row.querySelector('picture');
-
-        if (blockClasses.includes('col-33-66')) {
-          if (index === 0) {
-            col.setAttribute('class', 'col-33');
+        const is3366 = block.classList.contains('col-33-66');
+        const is6633 = block.classList.contains('col-66-33');
+        /* -- 2 Columns (33 / 66) logic -- */
+        if (is3366) {
+          if (cell === 1) {
+            column.setAttribute('class', 'col-33');
           } else {
-            if (textElement && picElement) {
-              const textWrapper = textElement.closest('div');
-              textWrapper.classList.add('col-66-right-txt');
+            /* By default, the regular 66% space is applied */
+            column.classList.add('col-66');
+            /* If the element in this second column is Text and the previous column is
+            an Image, a correction that adds inner padding is applied */
+            if (isText) {
+              column.classList.add('col-txt-spacing');
             }
-            col.classList.add('col-66');
           }
-        } else if (blockClasses.includes('col-66-33')) {
-          if (index === 0) {
-            if (textElement && picElement) {
-              const textWrapper = textElement.closest('div');
-              textWrapper.classList.add('col-66-left-txt');
+          /* -- 2 Columns (66 / 33) logic -- */
+        } else if (is6633) {
+          if (cell === 1) {
+            /* By default, the regular 66% space is applied */
+            column.classList.add('col-66');
+            /* If the element in this first column is Text and the following column is
+            an Image, a correction that adds inner padding is applied */
+            if (isText) {
+              column.classList.add('col-txt-spacing');
             }
-            col.classList.add('col-66');
           } else {
-            col.classList.add('col-33', 'col-start-two-thirds');
+            /* By default the regular 33% space is applied to the second column */
+            column.classList.add('col-33');
           }
+          /* -- 2 Columns (50 / 50) logic (Default) -- */
         } else {
-          col.classList.add('col-half');
-          if (textElement && picElement) {
-            const textWrapper = textElement.closest('div');
-            if (index === 0) {
-              textWrapper.classList.add('col-half-left-txt');
-              col.nextElementSibling.classList.add('col-start-half');
-            } else {
-              textWrapper.classList.add('col-half-right-txt');
-            }
+          /* By default the regular 50% space is applied to both columns */
+          column.classList.add('col-50');
+          /* If the element is Text a correction that adds inner padding is applied */
+          if (isText) {
+            column.classList.add('col-txt-spacing');
           }
         }
       }

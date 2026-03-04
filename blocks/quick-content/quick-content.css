@@ -1,10 +1,8 @@
-@scope (.columns) {
+@scope (.quick-content) {
     :scope {
         --grid-columns: 4;
         --gap: 16px;
         --initial-col: auto;
-        --col-33-span: 4;
-        --col-66-span: 4;
         --col-50-span: 4;
         --spacing-48: 48px;
         --row-block-start-margin: 24px;
@@ -12,15 +10,11 @@
         @media (width >= 768px) {
             --grid-columns: 12;
             --gap: 24px;
-            --col-33-span: 6;
-            --col-66-span: 6;
             --col-50-span: 6;
             --row-block-start-margin: 32px;
         }
 
         @media (width >= 1200px) {
-            --col-33-span: 4;
-            --col-66-span: 8;
             --col-50-span: 6;
             --row-block-start-margin: 40px;
         }
@@ -34,15 +28,11 @@
         --vertical-alignment: center;
     }
 
-    &.columns-3-cols {
-        --vertical-alignment: start;
-    }
-
     h2 {
         margin: 0;
     }
 
-    .columns-row {
+    .quick-content-row {
         display: grid;
         align-items: var(--vertical-alignment);
         grid-template-columns: repeat(var(--grid-columns), 1fr);
@@ -58,36 +48,12 @@
             width: 100%;
         }
 
-        & + .columns-row {
+        & + .quick-content-row {
             margin-block-start: var(--row-block-start-margin);
         }
 
         &.col-align-top {
             --vertical-alignment: start;
-        }
-
-        .col-33 {
-            grid-column: var(--initial-col) / span var(--col-33-span);
-
-            @media (width >= 768px) {
-                &:nth-child(3) {
-                    --col-33-span: 12;
-
-                    .last-col-img & {
-                        --col-33-span: 4;
-                    }
-                }
-            }
-
-            @media (width >= 1200px) {
-                &:nth-child(3) {
-                    --col-33-span: unset;
-                }
-            }
-        }
-
-        .col-66 {
-            grid-column: var(--initial-col) / span var(--col-66-span);
         }
 
         .col-50 {
@@ -99,6 +65,10 @@
 
             @media (width >= 768px) {
                 order: unset;
+
+                .media-right & {
+                    order: -1;
+                }
             }
 
             @media (width >= 1200px) {

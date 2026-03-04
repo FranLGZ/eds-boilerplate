@@ -1,0 +1,126 @@
+.columns-2-cols {
+  --vertical-alignment: center;
+}
+
+.columns-3-cols {
+  --vertical-alignment: start;
+}
+
+.columns img {
+  width: 100%;
+}
+
+
+.columns-row {
+  --grid-columns: 4;
+  --gap: 12px;
+
+  /* Column default mobile values */
+  --third-initial-column: auto;
+  --third-span: 4;
+  --twothirds-initial-column: auto;
+  --twothirds-span: 4;
+  --half-initial-column: auto;
+  --half-span: 4;
+
+  display: grid;
+  align-items: var(--vertical-alignment);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  gap: var(--gap);
+}
+
+.col-33 {
+	grid-column: var(--third-initial-column) / span var(--third-span);
+}
+
+.col-66 {
+	grid-column: var(--twothirds-initial-column) / span var(--twothirds-span);
+}
+
+.col-half {
+	grid-column: var(--half-initial-column) / span var(--half-span);
+}
+
+@media (width >= 768px) {
+    /* .columns {
+      border: 2px solid red;
+    } */
+
+    .columns-row {
+      --grid-columns: 8;
+    }
+
+    /* .col-33:last-child {
+      border: 1px solid blue;
+
+      --third-span: 12;
+    } */
+}
+
+@media (width >= 1024px) {
+    /* .columns {
+      border: 2px solid yellowgreen;
+    } */
+
+    .columns-row {
+      --grid-columns: 12;
+      --gap: 24px;
+
+      /* Column tablet portrait values */
+      --third-initial-column: auto;
+      --third-span: 6;
+      --twothirds-initial-column: auto;
+      --twothirds-span: 6;
+      --half-initial-column: auto;
+      --half-span: 6;
+    }
+}
+
+@media (width >= 1200px) {
+    /* .columns {
+      border: 2px solid blueviolet;
+    } */
+
+    .columns-row {
+      /* Column default desktop values */
+      --third-initial-column: auto;
+      --third-span: 4;
+      --twothirds-initial-column: auto;
+      --twothirds-span: 8;
+      --half-initial-column: auto;
+      --half-span: 6;
+    }
+
+    .col-66-right-txt {
+      --twothirds-initial-column: 6;
+      --twothirds-span: 7;
+    }
+
+    .col-66-left-txt {
+      --twothirds-initial-column: auto;
+      --twothirds-span: 7;
+    }
+
+    .col-start-two-thirds {
+      --third-initial-column: 9;
+    }
+
+    .col-half-right-txt {
+      --half-initial-column: 8;
+      --half-span: 5;
+    }
+
+    .col-half-left-txt {
+      --half-span: 5;
+    }
+
+    .col-start-half {
+      --half-initial-column: 7;
+    }
+}
+
+@media (width >= 1500px) {
+    /* .columns {
+      border: 2px solid cyan;
+    } */
+}
