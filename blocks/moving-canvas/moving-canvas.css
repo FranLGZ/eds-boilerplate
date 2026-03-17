@@ -1,0 +1,63 @@
+.moving-canvas {
+  height: 400vh;
+  position: relative;
+  margin: 50px 0;
+}
+
+.moving-canvas .spotlight-sticky-scene {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.moving-canvas canvas {
+  max-height: 80vh;
+  width: auto;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.moving-canvas .spotlight-content {
+  position: absolute;
+  transition: opacity 0.2s ease;
+}
+
+.moving-canvas .content-1 {
+  left: 10%;
+}
+
+.moving-canvas .content-2 {
+  right: 10%;
+  text-align: right;
+  opacity: 0;
+}
+
+/* Typography matching your NIBE style */
+.moving-canvas h2 {
+  font-family: "Gabarito", sans-serif;
+  font-size: clamp(40px, 5vw, 60px);
+  margin: 0;
+  color: #232323;
+}
+
+@media (max-width: 768px) {
+  .moving-canvas .spotlight-sticky-scene {
+    flex-direction: column;
+  }
+
+  .moving-canvas canvas {
+    transform: scale(1.1);
+  }
+
+  .moving-canvas .spotlight-content {
+    left: unset;
+    right: unset;
+    bottom: 10%;
+    text-align: center;
+    width: 90%;
+  }
+}
